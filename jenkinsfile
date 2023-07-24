@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jdk_8' }
+    agent { label 'JDK_8' }
     options {
         retry(3)
         timeout(time: 30, unit: 'MINUTES')
@@ -8,7 +8,7 @@ pipeline {
         pollSCM('* * * * *')
     }
     tools {
-        jdk 'java_8'
+        jdk 'jdk_8'
     }
     stages {
         stage('code') {
