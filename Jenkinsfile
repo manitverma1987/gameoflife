@@ -10,6 +10,9 @@ pipeline {
     tools {
         jdk 'JDK_8'
     }
+    parameters {
+        choice(name: 'GOAL', choices: ['package', 'clean package', 'install', 'clean install'], description: 'This is maven goal')
+    }
     stages {
         stage('code') {
             steps {
