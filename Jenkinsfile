@@ -29,8 +29,20 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/gameoflife.war'
             }
         }
+        
 
     }
-
+    post {
+        success {
+            mail subject: "${JOB_NAME}: has completed with suceess",
+                 body: "your project is effective \n Build Url ${BUILD_URL}",
+                 to: 'all@qt.com'
+        }
+        failure {
+            mail subject: "${JOB_NAME}: has completed with errors",
+                 body: "your project is Deffective \n Build Url ${BUILD_URL}",
+                 to: 'all@qt.com'
+        }
+    }
     
 }
